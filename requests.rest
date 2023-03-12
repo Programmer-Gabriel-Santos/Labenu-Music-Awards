@@ -1,0 +1,50 @@
+### Endpoint de teste
+Post http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "Gabriel",
+    "email": "Gabriel@labenu.com",
+    "password": "123456"
+}
+
+###
+
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email": "astrodev@gmail.com",
+    "password": "123456"
+}
+
+###
+
+POST http://localhost:3003/shows/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYzU0OTlmLTAyZWEtNDY2OS05NGY3LWVlNTVhNTFiMGE4MiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2NDYzMTA0OSwiZXhwIjoxNjY0NzE3NDQ5fQ.c82a2Vj3_Kc01Xq4TRItOnKSRKK5kV1vFBDfDSzqHx0
+
+{
+    "banda": "Natiruts",
+    "data": "07/12/2022"
+}
+
+###
+
+GET http://localhost:3003/shows
+
+###
+
+POST http://localhost:3003/shows/ticket
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYzU0OTlmLTAyZWEtNDY2OS05NGY3LWVlNTVhNTFiMGE4MiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2NDYzMTA0OSwiZXhwIjoxNjY0NzE3NDQ5fQ.c82a2Vj3_Kc01Xq4TRItOnKSRKK5kV1vFBDfDSzqHx0
+
+{
+    "id": "8b7ee626-21ae-410e-8266-b0264ff7d493",
+    "userId": "5dc5499f-02ea-4669-94f7-ee55a51b0a82"
+}
+
+###
+
+DELETE http://localhost:3003/shows/8b7ee626-21ae-410e-8266-b0264ff7d493
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYzU0OTlmLTAyZWEtNDY2OS05NGY3LWVlNTVhNTFiMGE4MiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2NDYzMTA0OSwiZXhwIjoxNjY0NzE3NDQ5fQ.c82a2Vj3_Kc01Xq4TRItOnKSRKK5kV1vFBDfDSzqHx0
