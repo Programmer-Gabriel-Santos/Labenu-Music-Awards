@@ -8,7 +8,7 @@ import { USER_ROLES } from "../models/User"
 import { Authenticator } from "../services/Authenticator"
 import { IdGenerator } from "../services/IdGenerator"
 
-export class ShowBusiness {
+export class ShowRules {
     constructor(
         private showDatabase: ShowDatabase,
         private idGenerator: IdGenerator,
