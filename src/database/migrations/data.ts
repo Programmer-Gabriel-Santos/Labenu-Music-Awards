@@ -29,17 +29,17 @@ export const shows: IShowDB[] = [
     {
         id: "201",
         band: "Foo Fighters",
-        starts_at: "2022/12/05"
+        starts_at: "2023/12/05"
     },
     {
         id: "202",
         band: "System of a Down",
-        starts_at: "2022/12/06"
+        starts_at: "2023/12/06"
     },
     {
         id: "203",
         band: "Evanescence",
-        starts_at: "2022/12/07"
+        starts_at: "2023/12/07"
     },
 ]
 

@@ -1,12 +1,12 @@
 {
-  "name": "projeto-cookenu-backend",
+  "name": "lama",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node ./build/src/index.js",
     "build": "tsc",
-    "dev": "ts-node-dev ./src/index.ts",
+    "dev": "ts-node-dev src/index.ts",
     "migrations": "tsc && node ./build/src/database/migrations/Migrations.js",
     "test": "jest"
   },
@@ -34,7 +34,7 @@
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
     "knex": "^2.2.0",
-    "mysql": "^2.18.1",
+    "mysql2": "^3.1.2",
     "uuid": "^8.3.2"
   }
 }

@@ -1,16 +1,18 @@
 {
     "compilerOptions": {
-        "target": "es2021",
+        "target": "es2022",
         "module": "commonjs",
         "sourceMap": true,
         "outDir": "./build",
-        "rootDir": "./",
+        "rootDir": ".",
         "removeComments": true,
         "noImplicitAny": true,
         "esModuleInterop": true,
-        "strict": true
+        "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */       
+        "strict": true,
+        "skipLibCheck": true 
     },
-    // "exclude": [
-    //     "./tests/*"
-    // ]
+    "exclude": [
+        "./tests/*"
+    ]
 }

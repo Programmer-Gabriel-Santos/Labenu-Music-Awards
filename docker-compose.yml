@@ -1,0 +1,50 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql:latest
+    container_name: dbLama
+    volumes:
+      - dbLama:/var/lib/mysql
+    networks:
+      - netLama
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: lama
+    ports:
+      - 3306:3306
+    restart: always
+  
+  app:
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+    container_name: app-lama
+    ports:
+      - 3003:3003
+    networks:
+      - netLama
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_DATABASE: lama
+      DB_PASSWORD: root
+      DB_PORT: 3306
+      JWT_KEY: ajsuegdtchbsm
+      JWT_EXPIRES_IN: 24h
+      BCRYPT_SALT_ROUNDS: 12
+      APP_PORT: 3003
+    command: npm run dev
+    restart: always
+
+volumes:
+  dbLama:
+  
+networks:
+  netLama:
+    driver: bridge
