@@ -48,5 +48,4 @@ na pasta src/database.
 
 ##### Observações
 
-Esse projeto foi desenvolvido durante o curso da Labenu e está sendo migrado para este repositório. Logo mais estará reformulado 
-com todos os testes completos e com docker-compose e/ou um link para acesso da aplicação em deploy na AWS para facilitar seu uso.
+Esse projeto foi desenvolvido durante o curso da Labenu e está sendo migrado para este repositório. Logo a imagem docker estará disponível com docker-compose.yml e/ou um link para acesso da aplicação em deploy na AWS para facilitar seu uso.
