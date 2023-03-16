@@ -28,6 +28,9 @@ a aplicação também gerencia os ingressos de cada show. O evento tem uma capac
 - POO
 
 
+## Testes 
+<img src="https://user-images.githubusercontent.com/104647293/225711622-57a8b877-7dca-4390-b35d-dc836eeba833.png" width="600px" />
+
 ## Como rodar o projeto
 
 Faça o clone do repositório, crie e preencha o .env com as seguintes variáveis de ambiente:
