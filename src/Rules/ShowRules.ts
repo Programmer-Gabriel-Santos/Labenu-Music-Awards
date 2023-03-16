@@ -1,9 +1,10 @@
 import { ShowDatabase } from "../database/ShowDatabase"
 import { AuthenticationError } from "../errors/AuthenticationError"
 import { AuthorizationError } from "../errors/AuthorizationError"
+import { InvalidData } from "../errors/InvalidDate"
 import { ParamsError } from "../errors/ParamsError"
 import { UnauthorizedError } from "../errors/UnauthorizedError"
-import { BuyTicketInputDTO, CreateShowInputDTO, DeleteTicketInputDTO, ITicketDB, Show } from "../models/Show"
+import { BuyTicketInputDTO, CreateShowInputDTO, DeleteTicketInputDTO, IOutputMessage, ITicketDB, Show } from "../models/Show"
 import { USER_ROLES } from "../models/User"
 import { Authenticator } from "../services/Authenticator"
 import { IdGenerator } from "../services/IdGenerator"
@@ -15,6 +16,11 @@ export class ShowRules {
         private authenticator: Authenticator
     ) { }
 
+    // // createShowTest deve ficar comentado para rodar a aplicação
+
+    // createShowTest = async (input: any) => {
+        
+
     createShow = async (input: CreateShowInputDTO) => {
         let { band, starts_at, token } = input
 
@@ -25,15 +31,15 @@ export class ShowRules {
         const date = starts_at.split("/")
 
         if (!Number(date[0]) || !Number(date[1]) || !Number(date[2])) {
-            throw new Error("Formato de 'data' inválido")
+            throw new InvalidData()
         }
 
-        if (date.length < 3) {
-            throw new Error("Formato de 'data' inválido")
+        if (date[2].length < 4) {
+            throw new InvalidData()
         }
 
         if (Number(date[0]) < 5 || Number(date[1]) < 12) {
-            throw new Error("Um show não pode ser agendado para antes do início do evento")
+            throw new InvalidData()
         }
 
         const payload = this.authenticator.getTokenPayload(token)
@@ -43,7 +49,7 @@ export class ShowRules {
         }
 
         if (payload.role !== USER_ROLES.ADMIN) {
-            throw new UnauthorizedError()
+            throw new AuthorizationError()
         }
 
         const dateToFormatEua = starts_at.split("/").reverse().join("-")
@@ -65,7 +71,7 @@ export class ShowRules {
 
         await this.showDatabase.insertShow(show)
 
-        const response = {
+        const response: IOutputMessage = {
             message: "Show agendado com suceso!"
         }
 
@@ -76,24 +82,32 @@ export class ShowRules {
 
         const shows = await this.showDatabase.selectShows()
 
+        const test = true /* variável necessária para testes, e utilizada apenas por dataBaseMock */
+
         for(let show of shows){
-            const qntTickets = await this.showDatabase.selectQntTickets(show.getId())
-            
+
+            const qntTickets = await this.showDatabase.selectQntTickets(show.getId(), test) /* para teste */
+
+            // const qntTickets = await this.showDatabase.selectQntTickets(show.getId())
             show.setTickets(Number(qntTickets))
             
-            const date = new Date(show.getStartsAt())
+            const date = new Date(Date.parse(show.getStartsAt()))
             
-            const day = date.getDate()
+            const day = date.getDate() + 1
             const month = date.getMonth() + 1
             const year = date.getFullYear()
             
-            const dateAtual = `${day}/${month}/${year}`
+            const dateAtual = `0${day}/${month}/${year}`
 
             show.setStartsAt(dateAtual)
         }
 
         return shows
     }
+
+    // // 
+
+    // buyTicketTest = async(input: any)=>{ /* byTicketTest deve ficar comentado para rodar a aplicação */
 
     buyTicket = async(input: BuyTicketInputDTO)=>{
         const {show_id, user_id, token} = input
@@ -108,13 +122,20 @@ export class ShowRules {
             throw new AuthenticationError()
         }
 
-        const isTicketUser = await this.showDatabase.findTicketByUser(user_id)
+        const test =  input.test /* variável nescessária e utilizada apenas em dataBaseMock, para testes */
+
+        const isTicketUser = await this.showDatabase.findTicketByUser(user_id, test) /* linha para testes */
+
+        // const isTicketUser = await this.showDatabase.findTicketByUser(user_id)
+
 
         if(isTicketUser){
             throw new Error("Você já possui um ingresso")
         }
 
-        const qntTickets = await this.showDatabase.selectQntTickets(show_id)
+        const qntTickets = await this.showDatabase.selectQntTickets(show_id, test) /* linha para testes */
+
+        // const qntTickets = await this.showDatabase.selectQntTickets(show_id)
 
         if(qntTickets >= 5000){
             throw new Error("Ingressos esgotados :/")
@@ -130,13 +151,16 @@ export class ShowRules {
 
         await this.showDatabase.insertTicket(inputDB)
 
-        const response = {
+        const response: IOutputMessage = {
             message: "Ingresso reservado com sucesso!"
         }
 
         return response
 
     }
+
+    // deleteTicketTest = async(input: any)=>{ /* deletTicketTest deve ficar comentado para rodar a aplicação */
+
 
     deleteTicket = async(input: DeleteTicketInputDTO)=>{
         const {show_id, token} = input
@@ -151,8 +175,12 @@ export class ShowRules {
             throw new AuthenticationError()
         }
 
-        const ticketExist = await this.showDatabase.findTicketByUser(payload.id)
+        const test = input.test /* variável nescessária e utilizada apenas em dataBaseMock, para  */
 
+        const ticketExist = await this.showDatabase.findTicketByUser(payload.id, test) /* linha para testes */
+
+        // const ticketExist = await this.showDatabase.findTicketByUser(payload.id)
+        
         if(!ticketExist){
             throw new ParamsError()
         }
@@ -163,7 +191,7 @@ export class ShowRules {
 
         await this.showDatabase.deleteTicket(ticketExist.id)
 
-        const response = {
+        const response: IOutputMessage = {
             message: "Ingresso restituído"
         }
 

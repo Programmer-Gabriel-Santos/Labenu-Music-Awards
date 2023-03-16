@@ -1,6 +1,6 @@
-import { BaseDatabase } from "../../src/database/BaseDatabase"
-import { shows, tickets } from "../../src/database/migrations/data"
-import { IShowDB, ITicketDB, Show } from "../../src/models/Show"
+import { BaseDatabase } from "../../../src/database/BaseDatabase"
+import { shows, tickets } from "./data"
+import { IShowDB, ITicketDB, Show } from "../../../src/models/Show"
 
 export class ShowDatabaseMock extends BaseDatabase {
     public static TABLE_SHOWS = "Lama_shows"
@@ -17,7 +17,7 @@ export class ShowDatabaseMock extends BaseDatabase {
     }
 
     selectShowByDate = async (starts_at: string): Promise<IShowDB | undefined> => {
-        const show = shows.find(show => show.starts_at === starts_at)
+        const show = shows.find(show => show.starts_at == starts_at)
 
         return show
     }
@@ -25,22 +25,28 @@ export class ShowDatabaseMock extends BaseDatabase {
     insertShow = async(show: Show):Promise<void> => { }
 
     selectShows = async(): Promise<Show[]> => {
-
         const newShows = Show.toShowModel(shows)
-
+        
         return newShows
     }
 
-    selectQntTickets = async (show_id: string): Promise<number> => {
-        const result = shows.filter(show => show.id === show_id)
+    selectQntTickets = async (show_id: string, test: boolean): Promise<number> => {
 
-        return result.length
+        if(test){
+            const qntTickets = tickets.filter(ticket => ticket.show_id == show_id)
+            return qntTickets.length
+        }
+        
+        return 5000
     }
 
-    findTicketByUser = async (user_id: string): Promise<ITicketDB | undefined> => {
-        const result: ITicketDB | undefined = tickets.find(ticket => ticket.user_id === user_id)
-        console.log(result)
-        return result
+    findTicketByUser = async (user_id: string, test: boolean): Promise<ITicketDB | undefined> => {
+        if(test){
+            const ticket = tickets.find(ticket => ticket.user_id == user_id)
+            return ticket
+        }
+        
+        return undefined
     }
 
     insertTicket = async (input: ITicketDB): Promise<void> => { }

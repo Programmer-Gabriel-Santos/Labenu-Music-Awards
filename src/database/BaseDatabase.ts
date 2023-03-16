@@ -1,18 +1,28 @@
-import knex from "knex"
+import knex, { Knex } from "knex"
 import dotenv from "dotenv"
 
 dotenv.config()
 
 export abstract class BaseDatabase {
-    protected static connection = knex({
-        client: "mysql2",
-        connection: {
-            host: process.env.DB_HOST,
-            port: 3306,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            database: process.env.DB_DATABASE,
-            multipleStatements: true
-        },
-    })
+
+    private connetion: Knex | null = null
+
+    protected getConnection() {
+        const DB_PORT = Number(process.env.DB_PORT)
+        
+        if (!this.connetion) {
+            this.connetion = knex({
+                client: "mysql2",
+                connection: {
+                    host: process.env.DB_HOST,
+                    user: process.env.DB_USER,
+                    database: process.env.DB_DATABASE,
+                    password: process.env.DB_PASSWORD,
+                    port: DB_PORT,
+                }
+            })
+        }
+
+        return this.connetion
+    }
 }

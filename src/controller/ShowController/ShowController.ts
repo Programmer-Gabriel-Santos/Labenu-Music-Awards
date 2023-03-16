@@ -48,7 +48,8 @@ export class ShowController {
             const input: BuyTicketInputDTO = {
                 show_id: req.body.id,
                 user_id: req.body.userId,
-                token: req.headers.authorization as string
+                token: req.headers.authorization as string,
+                test: false
             }
 
             const response = await this.showRules.buyTicket(input)
@@ -68,7 +69,8 @@ export class ShowController {
         try {
             const input: DeleteTicketInputDTO ={
                 token: req.headers.authorization as string,
-                show_id: req.params.id
+                show_id: req.params.id,
+                test: false
             }
 
             const response = await this.showRules.deleteTicket(input)

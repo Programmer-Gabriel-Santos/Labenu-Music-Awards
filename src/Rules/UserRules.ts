@@ -16,7 +16,12 @@ export class UserRules {
         private authenticator: Authenticator
     ) {}
 
-    signup = async(input: SignupInputDTO) =>{
+    // // O método signupTest deve ficar comentado para rodar a aplicação
+
+    // signupTest = async (input: any): Promise<SignupOutputDTO> => {
+            
+        
+   signup = async(input: SignupInputDTO) =>{
         const {name, email, password} = input
 
         if (!name || !email || !password) {
@@ -36,7 +41,7 @@ export class UserRules {
         }
 
         if (typeof password !== "string" || password.length < 6) {
-            throw new AuthenticationError()
+            throw new ParamsError()
         } 
 
         const userDB = await this.userDatabase.findByEmail(email)
@@ -73,6 +78,10 @@ export class UserRules {
         return response
     }
 
+
+    // loginTest = async(input: any)=>{ /* loginTest deve ficar comantado para rodar a aplicação */
+
+
     login = async(input: LoginInputDTO)=>{
         const {email, password} = input
 
@@ -88,7 +97,7 @@ export class UserRules {
             throw new EmailInvalid()
         }
 
-        if (typeof password !== "string" || password.length < 3) {
+        if (typeof password !== "string" || password.length < 6) {
             throw new AuthenticationError()
         }
 
