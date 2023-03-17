@@ -4,10 +4,14 @@ export interface IShowDB {
     starts_at: string
 }
 
-export interface ITicketDB {
+export interface ITicketDB { 
     id: string,
     show_id: string,
     user_id: string
+}
+
+export interface IOutputMessage{
+    message: string
 }
 
 export class Show {
@@ -71,10 +75,12 @@ export interface CreateShowInputDTO{
 export interface BuyTicketInputDTO{
     show_id: string,
     user_id: string,
-    token: string
+    token: string,
+    test: boolean
 }
 
 export interface DeleteTicketInputDTO{
     show_id: string,
-    token: string
+    token: string,
+    test: boolean 
 }

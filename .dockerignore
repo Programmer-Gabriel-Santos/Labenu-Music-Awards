@@ -1,0 +1,7 @@
+.env
+node_modules
+jest.config.js
+package-lock.json
+README.md
+request.rest
+coverage

@@ -1,7 +1,7 @@
 import { IUserDB, User } from "../models/User"
-import { BaseDatabase } from "./BaseDatabase"
+import { BaseDataBase } from "./BaseDataBase"
 
-export class UserDatabase extends BaseDatabase {
+export class UserDatabase extends BaseDataBase {
     public static TABLE_USERS = "Lama_users"
 
     toUserDBModel = (user: User) => {
@@ -18,8 +18,7 @@ export class UserDatabase extends BaseDatabase {
 
     findByEmail = async (email: string): Promise<IUserDB> => {
 
-        const userDB: IUserDB[] = await BaseDatabase
-            .connection(UserDatabase.TABLE_USERS)
+        const userDB: IUserDB[] = await this.getConnection()(UserDatabase.TABLE_USERS)
             .select()
             .where({ email })
 
@@ -29,7 +28,7 @@ export class UserDatabase extends BaseDatabase {
     insertUser = async (user: User) => {
         const userDB = this.toUserDBModel(user)
 
-        await UserDatabase.connection(UserDatabase.TABLE_USERS)
+        await this.getConnection()(UserDatabase.TABLE_USERS)
             .insert(userDB)
     }
 }

@@ -1,12 +1,12 @@
-import { IShowDB, ITicketDB } from "../../models/Show"
-import { IUserDB, USER_ROLES } from "../../models/User"
+import { IShowDB, ITicketDB } from "../../../src/models/Show"
+import { IUserDB, USER_ROLES } from "../../../src/models/User"
 
 export const users: IUserDB[] = [
     {
         id: "101",
         name: "Astrodev",
-        email: "astrodev@gmail.com",
-        password: "$2a$12$RBAWOHpUvGTE.MEeIohAzec9tlVqtNA/x2PMPt/Hrt0vI437cQdJC", // bananinha
+        email: "astrodev@labenu.com",
+        password: "hash-bananinha",                  //"$2a$12$RBAWOHpUvGTE.MEeIohAzec9tlVqtNA/x2PMPt/Hrt0vI437cQdJC", // bananinha
         role: USER_ROLES.ADMIN
     },
     {
@@ -29,17 +29,17 @@ export const shows: IShowDB[] = [
     {
         id: "201",
         band: "Foo Fighters",
-        starts_at: "2023/12/05"
+        starts_at: "2023-12-05"
     },
     {
         id: "202",
         band: "System of a Down",
-        starts_at: "2023/12/06"
+        starts_at: "2023-12-06"
     },
     {
         id: "203",
         band: "Evanescence",
-        starts_at: "2023/12/07"
+        starts_at: "2023-12-07"
     },
 ]
 
@@ -52,7 +52,7 @@ export const tickets: ITicketDB[] = [
     {
         id: "302",
         show_id: "202",
-        user_id: "101"
+        user_id: "100"
     },
     {
         id: "303",
