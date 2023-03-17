@@ -1,4 +1,9 @@
 ### Endpoint de teste
+
+GET http://localhost:3003/shows/
+
+###
+
 Post http://localhost:3003/users/signup
 Content-Type: application/json
 
@@ -46,5 +51,3 @@ DELETE http://localhost:3003/shows/53631f56-decc-4f39-8112-f523f002965f
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZkODI3ZTJmLTU4ODctNGI4NS05ZTg1LWUxYzE5MjQ2MzY5NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NzkwNzk0NDEsImV4cCI6MTY3OTE2NTg0MX0.flbIKytQ-Vvh-CGoAwS49FxfhtZFL2VaaD_uBHXA9KY
 
 ###
-
-GET http://localhost:3003/shows/

@@ -2,13 +2,7 @@ FROM node:alpine
 
 WORKDIR /app
 
-COPY package.json /app
-
-RUN npm install
-
-COPY . .
-
-ENV DB_HOST=172.18.0.2 \
+ENV DB_HOST=db \
     DB_PORT=3306 \
     DB_USER=root \
     DB_PASSWORD=root \
@@ -18,6 +12,12 @@ ENV DB_HOST=172.18.0.2 \
     JWT_EXPIRES_IN=24h \
     BCRYPT_SALT=12 
 
+COPY package.json /app
+
+COPY build /app/build
+
+RUN npm install --production
+
 EXPOSE 3003
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]

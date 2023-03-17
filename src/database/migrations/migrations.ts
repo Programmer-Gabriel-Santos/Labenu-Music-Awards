@@ -2,10 +2,17 @@ import {BaseDataBase} from "../BaseDataBase"
 
 export class Migrations extends BaseDataBase{
 
-    user = {
+    userAdmin = {
         idUser: "001",
         name: "Astrodev",
         email: "astrodev@labenu.com",
+        password: "123456"
+    }
+
+    userNormal = {
+        idUser: "002",
+        name: "Astrobot",
+        email: "astrobot@labenu.com",
         password: "123456"
     }
     
@@ -15,7 +22,11 @@ export class Migrations extends BaseDataBase{
         
         const usersTableExists = await this.connection.schema.hasTable("Lama_users")
 
-        if(usersTableExists) console.log("Tabelas e Usuário Admin já existentes,", "esse é seu usuário:", "\n", this.user)
+        if(usersTableExists) console.log(
+            "Tabelas e Usuários já existentes.", "\n", " ", "\n",
+            "Esse é seu usuário admin:", "\n", this.userAdmin, "\n", " ", "\n",
+            "Esse é o usuário normal:", "\n", this.userNormal
+        )
         
         if(!usersTableExists){
             console.log("Criando tabela de usuários...")
@@ -43,7 +54,7 @@ export class Migrations extends BaseDataBase{
             });
             console.log("Tabelas criadas")
 
-            console.log("Inserindo dados de usuário Admin...")
+            console.log("Inserindo dados de usuários...")
 
             await this.connection("Lama_users").insert ({
                id: "001",
@@ -53,9 +64,16 @@ export class Migrations extends BaseDataBase{
                role: "ADMIN"
             });
 
-            console.log("Usuário criado com sucesso! Esse é seu login de para usar as funcionalidades da aplicação:",
-             "\n", this.user
-            )
+            await this.connection("Lama_users").insert ({
+                id: "002",
+                name: "Astrobot",
+                email: "astrobot@labenu.com",
+                password: "$2a$10$a7peD6Q2bZG3U0oAOlEnduu0pMxbw6E/ljrNGZMHewPpwgBQ/aSte",
+                role: "NORMAL"
+             });
+
+            console.log("Usuários criados com sucesso! Esses são seus logins para usar as funcionalidades da aplicação:",
+             "\n", " ", "\n", "user admin:", "\n",this.userAdmin, "\n", " ", "\n", "user normal:", "\n", this.userNormal)           
         }   
     }  
 }
