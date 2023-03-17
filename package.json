@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./build/src/index.js",
+    "start": "node build/index.js",
     "build": "tsc",
     "dev": "ts-node-dev src/index.ts",
-    "migrations": "tsc && node ./build/src/database/migrations/Migrations.js",
     "test": "jest"
   },
   "keywords": [],
