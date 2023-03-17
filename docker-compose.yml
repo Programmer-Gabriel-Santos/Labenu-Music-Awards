@@ -17,7 +17,7 @@ services:
     restart: always
   
   app:
-    build: .
+    image: gabrieldeveloperfull/lama:1.0
     container_name: app-lama
     ports:
       - 3003:3003
