@@ -1,8 +1,8 @@
-import { BaseDatabase } from "../../../src/database/BaseDatabase"
+import { BaseDataBase } from "../../../src/database/BaseDataBase"
 import { IUserDB, User } from "../../../src/models/User"
 import { users} from "./data"
 
-export class UserDataBaseMock extends BaseDatabase {
+export class UserDataBaseMock extends BaseDataBase {
     public static TABLE_USERS = "Lama_users"
 
     toUserDBModel = (user: any) => {

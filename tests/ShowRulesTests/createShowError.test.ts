@@ -2,11 +2,11 @@ import { BaseError } from "../../src/errors/BaseError"
 import { ShowRules } from "../../src/Rules/ShowRules"
 import { AuthenticatorMock } from "../mocks/services/AuthenticatorMock"
 import { IdGeneratorMock } from "../mocks/services/IdGeneratorMock"
-import { ShowDatabaseMock } from "../mocks/data/ShowDatabaseMock"
+import { ShowDataBaseMock } from "../mocks/data/ShowDataBaseMock"
 
 describe("testando casos de erros do método createShow em ShowRules", () => {
     const showRules = new ShowRules(
-        new ShowDatabaseMock(),
+        new ShowDataBaseMock(),
         new IdGeneratorMock(),
         new AuthenticatorMock()
     )

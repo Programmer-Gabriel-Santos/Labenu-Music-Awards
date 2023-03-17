@@ -1,12 +1,12 @@
 import { BaseError } from "../../src/errors/BaseError"
 import { ShowRules } from "../../src/Rules/ShowRules"
-import { ShowDatabaseMock } from "../mocks/data/ShowDatabaseMock"
+import { ShowDataBaseMock } from "../mocks/data/ShowDataBaseMock"
 import { AuthenticatorMock } from "../mocks/services/AuthenticatorMock"
 import { IdGeneratorMock } from "../mocks/services/IdGeneratorMock"
 
 describe("testando casos de erros do método buyTicket em ShowRules", () => {
     const showRules = new ShowRules(
-        new ShowDatabaseMock(),
+        new ShowDataBaseMock(),
         new IdGeneratorMock(),
         new AuthenticatorMock()
     )

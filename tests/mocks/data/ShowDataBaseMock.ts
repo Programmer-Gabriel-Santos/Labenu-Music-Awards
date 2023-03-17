@@ -1,8 +1,8 @@
-import { BaseDatabase } from "../../../src/database/BaseDatabase"
+import { BaseDataBase } from "../../../src/database/BaseDataBase"
 import { shows, tickets } from "./data"
 import { IShowDB, ITicketDB, Show } from "../../../src/models/Show"
 
-export class ShowDatabaseMock extends BaseDatabase {
+export class ShowDataBaseMock extends BaseDataBase {
     public static TABLE_SHOWS = "Lama_shows"
     public static TABLE_TICKETS = "Lama_tickets"
 

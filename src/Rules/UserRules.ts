@@ -111,7 +111,7 @@ export class UserRules {
 
         const isPasswordIsCorrect = await this.hashManager.compare(password, user.getPassword())
 
-        if(!isPasswordIsCorrect){
+        if(!isPasswordIsCorrect){ 
             throw new UnauthorizedError()
         }
 

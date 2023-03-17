@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
     "name": "Gabriel",
-    "email": "Gabriel@labenu.com",
+    "email": "gabriel@gmail.com",
     "password": "123456"
 }
 
@@ -14,15 +14,15 @@ POST http://localhost:3003/users/login
 Content-Type: application/json
 
 {
-    "email": "astrodev@labenu.com",
-    "password": "bananinha"
+    "email": "gabriel@gmail.com",
+    "password": "123456"
 }
 
 ###
 
 POST http://localhost:3003/shows/create
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODk4ODI5MCwiZXhwIjoxNjc5MDc0NjkwfQ.5FHRaPcj5ZEhrROUtyJOhLiQXjByLSxeE-KVxuq75Bs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJpYXQiOjE2NzkwNTg1NDQsImV4cCI6MTY3OTE0NDk0NH0.BB4tFezLohrt6R3v0ZaYSAG0pBHwd5NmcttVwX7sOKs
 
 {
     "banda": "Natiruts",
@@ -33,14 +33,18 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJB
 
 POST http://localhost:3003/shows/ticket
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYzU0OTlmLTAyZWEtNDY2OS05NGY3LWVlNTVhNTFiMGE4MiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2NDYzMTA0OSwiZXhwIjoxNjY0NzE3NDQ5fQ.c82a2Vj3_Kc01Xq4TRItOnKSRKK5kV1vFBDfDSzqHx0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZkODI3ZTJmLTU4ODctNGI4NS05ZTg1LWUxYzE5MjQ2MzY5NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NzkwNzk0NDEsImV4cCI6MTY3OTE2NTg0MX0.flbIKytQ-Vvh-CGoAwS49FxfhtZFL2VaaD_uBHXA9KY
 
 {
-    "id": "8b7ee626-21ae-410e-8266-b0264ff7d493",
-    "userId": "5dc5499f-02ea-4669-94f7-ee55a51b0a82"
+    "showId": "53631f56-decc-4f39-8112-f523f002965f",
+    "userId": "fd827e2f-5887-4b85-9e85-e1c192463695"
 }
 
 ###
 
-DELETE http://localhost:3003/shows/8b7ee626-21ae-410e-8266-b0264ff7d493
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkYzU0OTlmLTAyZWEtNDY2OS05NGY3LWVlNTVhNTFiMGE4MiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2NDYzMTA0OSwiZXhwIjoxNjY0NzE3NDQ5fQ.c82a2Vj3_Kc01Xq4TRItOnKSRKK5kV1vFBDfDSzqHx0
+DELETE http://localhost:3003/shows/53631f56-decc-4f39-8112-f523f002965f
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZkODI3ZTJmLTU4ODctNGI4NS05ZTg1LWUxYzE5MjQ2MzY5NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NzkwNzk0NDEsImV4cCI6MTY3OTE2NTg0MX0.flbIKytQ-Vvh-CGoAwS49FxfhtZFL2VaaD_uBHXA9KY
+
+###
+
+GET http://localhost:3003/shows/

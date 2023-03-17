@@ -1,7 +1,7 @@
 import { IUserDB, User } from "../models/User"
-import { BaseDatabase } from "./BaseDatabase"
+import { BaseDataBase } from "./BaseDataBase"
 
-export class UserDatabase extends BaseDatabase {
+export class UserDatabase extends BaseDataBase {
     public static TABLE_USERS = "Lama_users"
 
     toUserDBModel = (user: User) => {

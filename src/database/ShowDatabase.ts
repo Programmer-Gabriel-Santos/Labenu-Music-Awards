@@ -1,7 +1,7 @@
 import { IShowDB, ITicketDB, Show } from "../models/Show"
-import { BaseDatabase } from "./BaseDatabase"
+import { BaseDataBase } from "./BaseDataBase"
 
-export class ShowDatabase extends BaseDatabase {
+export class ShowDatabase extends BaseDataBase {
     public static TABLE_SHOWS = "Lama_shows"
     public static TABLE_TICKETS = "Lama_tickets"
 

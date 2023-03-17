@@ -46,7 +46,7 @@ export class ShowController {
     buyTicket = async (req: Request, res: Response) => {
         try {
             const input: BuyTicketInputDTO = {
-                show_id: req.body.id,
+                show_id: req.body.showId,
                 user_id: req.body.userId,
                 token: req.headers.authorization as string,
                 test: false

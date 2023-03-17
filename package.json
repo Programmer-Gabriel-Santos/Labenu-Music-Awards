@@ -8,7 +8,7 @@
     "build": "tsc",
     "dev": "ts-node-dev src/index.ts",
     "migrations": "tsc && node ./build/src/database/migrations/Migrations.js",
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",

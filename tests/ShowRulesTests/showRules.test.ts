@@ -2,11 +2,11 @@ import { ShowRules } from "../../src/Rules/ShowRules"
 import { BuyTicketInputDTO, CreateShowInputDTO, DeleteTicketInputDTO, IShowDB } from "../../src/models/Show"
 import { AuthenticatorMock } from "../mocks/services/AuthenticatorMock"
 import { IdGeneratorMock } from "../mocks/services/IdGeneratorMock"
-import { ShowDatabaseMock } from "../mocks/data/ShowDatabaseMock"
+import { ShowDataBaseMock } from "../mocks/data/ShowDataBaseMock"
 
 describe("Testando a ShowRules para casos de sucesso", () => {
     const showRules = new ShowRules(
-        new ShowDatabaseMock(),
+        new ShowDataBaseMock(),
         new IdGeneratorMock(),
         new AuthenticatorMock()
 
@@ -46,7 +46,7 @@ describe("Testando a ShowRules para casos de sucesso", () => {
             }
         ]
 
-        const responseToDBModel = ShowDatabaseMock.toShowDBModel(response[0])
+        const responseToDBModel = ShowDataBaseMock.toShowDBModel(response[0])
         expect(responseToDBModel).toEqual(shows[0])
     })
 

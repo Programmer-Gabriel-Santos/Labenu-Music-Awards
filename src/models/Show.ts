@@ -4,7 +4,7 @@ export interface IShowDB {
     starts_at: string
 }
 
-export interface ITicketDB {
+export interface ITicketDB { 
     id: string,
     show_id: string,
     user_id: string

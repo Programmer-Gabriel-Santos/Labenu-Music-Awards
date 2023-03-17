@@ -112,6 +112,8 @@ export class ShowRules {
     buyTicket = async(input: BuyTicketInputDTO)=>{
         const {show_id, user_id, token} = input
 
+        console.log("show:",show_id,"\n", "user:", user_id)
+
         if (!show_id || !user_id || !token) {
             throw new ParamsError()
         }
@@ -126,16 +128,12 @@ export class ShowRules {
 
         const isTicketUser = await this.showDatabase.findTicketByUser(user_id, test) /* linha para testes */
 
-        // const isTicketUser = await this.showDatabase.findTicketByUser(user_id)
-
 
         if(isTicketUser){
             throw new Error("Você já possui um ingresso")
         }
 
         const qntTickets = await this.showDatabase.selectQntTickets(show_id, test) /* linha para testes */
-
-        // const qntTickets = await this.showDatabase.selectQntTickets(show_id)
 
         if(qntTickets >= 5000){
             throw new Error("Ingressos esgotados :/")
@@ -178,12 +176,11 @@ export class ShowRules {
         const test = input.test /* variável nescessária e utilizada apenas em dataBaseMock, para  */
 
         const ticketExist = await this.showDatabase.findTicketByUser(payload.id, test) /* linha para testes */
-
-        // const ticketExist = await this.showDatabase.findTicketByUser(payload.id)
-        
+        console.log("ticket do banco", ticketExist)
         if(!ticketExist){
             throw new ParamsError()
         }
+        console.log(ticketExist.user_id, payload.id)
 
         if(payload.role !== USER_ROLES.ADMIN && ticketExist?.user_id !== payload.id){
             throw new AuthorizationError()
