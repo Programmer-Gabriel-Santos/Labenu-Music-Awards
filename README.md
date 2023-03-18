@@ -34,8 +34,19 @@ a aplicação também gerencia os ingressos de cada show. O evento tem uma capac
 
 <details>
     <summary> Rodar com NodeJs </summary>
-    <p> Para rodar o projeto em seu host você presira ter o NOdeJs instlado. Clone o repositório, use o comando 'npm i' para instalar as dependências, </p>
+    <p> - Para rodar o projeto em seu host você presira ter o NOdeJs instalado; </p>
+    <p> - Clone o repositório e use o comando 'npm i' para instalar as dependências; </p>
+    <p> - Você precisará de um banco de dados para a aplicação funcionar corretamente; </p>
+    <p> - Adicione seu acesso banco no .env com as seguintes chaves: </p>
+    <p> - DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, JWT_KEY = qualquerString, JWT_EXPIRES_IN = 24h, BCRYPT_SALT_ROUNDS = 12; </p>
+    <p> - O Knex está configurado para usar o mysql, se seu banco for outro você precisa alterar essas configurações em BaseDataBase; </p>
+    <p> - Por fim, você pode usar os comandos 'npm run build' e 'npm start' para rodar a aplicação; </p>
+    <p> - Para fazer as requisições você pode usar o arquivo request.rest, você precisará da extenção Rest Client. </p>
+</details>
 
+<details> 
+    <summary> Para rodar com Docker-Compose </summary> 
+    <p> Você preciar ter o <a href="https://docs.docker.com/get-docker/" target="_blank"> Docker </a>
 </details>
 
 ## Como rodar o projeto
