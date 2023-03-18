@@ -58,7 +58,7 @@ a aplicação também gerencia os ingressos de cada show. O evento tem uma capac
  <p> Um netWork com o nome 'netLama', que também poderá estar sendo removido após o fim do uso dos containers com o comando 'docker network rm netLama'.  </p>
  
 </details>
- <img src="https://user-images.githubusercontent.com/104647293/226107935-7d4b6384-0c1f-418f-981d-0dd543c44a74.png" width="200px">
+ <img src="https://user-images.githubusercontent.com/104647293/226108054-8fabc507-0b12-45de-8836-1a5489c39172.png" width="400px">
 
 
 ## Como rodar o projeto
