@@ -46,8 +46,20 @@ a aplicação também gerencia os ingressos de cada show. O evento tem uma capac
 
 <details> 
     <summary> Para rodar com Docker-Compose </summary> 
-    <p> Você preciar ter o <a href="https://docs.docker.com/get-docker/" target='_blank' > Docker </a>
+    <p> - Você preciar ter o <a href="https://docs.docker.com/get-docker/" target='_blank' > Docker </a> e o <a                   href="https://docs.docker.com/compose/install/" target='_blank' > Docker-Compose </a> instalados; </p>
+ <p> - Copie o conteúdo do arquivo <a href="https://github.com/Programmer-Gabriel-Santos/Labenu-Music-Awards/blob/main/docker-compose.yml" target='blank'> docker-compose.yml </a> para um arquivo com o mesmo nome: docker-compose.yml em seu host; </p>
+ <p> - Feito isso, use o comando 'docker-compose up' ou 'docker-compose up -d' para deixar seu terminal livre. </p>
+ <p> - A partir desse docker-compose serão criados três containers: aplicação node, banco mysql e o gerenciador de banco adminer. </p>
+ <p> - Caso queira conferir os dados do banco de forma manual e sua estrutura, pode acessar o adminer em seu localhost:3008, ou pode configurar outra            porta para ambos containers no docker-compose.yml. Certifique-se de que as portas listadas estão disponíveis em seu host antes de iniciar os              containers, altere apenas as portas para o seu host, as portas dos containers precisam ser as que estão listadas no docker-compose.yml para que a          aplicação funcione corretamente. Aqui está como deve ser seu login no adminer:
+ </p>
+ <p> Também serão criados: </p>
+ <p> - Um volume com o nome 'dbLama' para o banco de dados, volume esse que poderá ser excluído após o uso da aplicação com o comando 'docker volume rm            dbLama'; 
+ </p>
+ <p> Um netWork com o nome 'netLama', que também poderá estar sendo removido após o fim do uso dos containers com o comando 'docker network rm netLama'.  </p>
+ 
 </details>
+ <img src="https://user-images.githubusercontent.com/104647293/226107935-7d4b6384-0c1f-418f-981d-0dd543c44a74.png" width="200px">
+
 
 ## Como rodar o projeto
 
