@@ -46,7 +46,7 @@ a aplicação também gerencia os ingressos de cada show. O evento tem uma capac
 
 <details> 
     <summary> Para rodar com Docker-Compose </summary> 
-    <p> Você preciar ter o <a href="https://docs.docker.com/get-docker/" target=_blank > Docker </a>
+    <p> Você preciar ter o <a href="https://docs.docker.com/get-docker/" target='_blank' > Docker </a>
 </details>
 
 ## Como rodar o projeto
