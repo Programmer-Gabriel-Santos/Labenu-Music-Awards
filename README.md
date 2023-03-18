@@ -21,6 +21,7 @@ a aplicação também gerencia os ingressos de cada show. O evento tem uma capac
 
 - TypeScript
 - NodeJs
+- Docker
 - Express
 - Jest
 - Knex
@@ -30,6 +31,12 @@ a aplicação também gerencia os ingressos de cada show. O evento tem uma capac
 
 ## Testes 
 <img src="https://user-images.githubusercontent.com/104647293/225711622-57a8b877-7dca-4390-b35d-dc836eeba833.png" width="600px" />
+
+<details>
+    <summary> Rodar com NodeJs </summary>
+    <p> Para rodar o projeto em seu host você presira ter o NOdeJs instlado. Clone o repositório, use o comando 'npm i' para instalar as dependências, </p>
+
+</details>
 
 ## Como rodar o projeto
 
