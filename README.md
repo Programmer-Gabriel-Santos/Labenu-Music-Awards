@@ -52,30 +52,15 @@ a aplicação também gerencia os ingressos de cada show. O evento tem uma capac
  <p> - A partir desse docker-compose serão criados três containers: aplicação node, banco mysql e o gerenciador de banco adminer. </p>
  <p> - Caso queira conferir os dados do banco de forma manual e sua estrutura, pode acessar o adminer em seu localhost:3008, ou pode configurar outra            porta para ambos containers no docker-compose.yml. Certifique-se de que as portas listadas estão disponíveis em seu host antes de iniciar os              containers, altere apenas as portas para o seu host, as portas dos containers precisam ser as que estão listadas no docker-compose.yml para que a          aplicação funcione corretamente. Aqui está como deve ser seu login no adminer:
  </p>
+ <img src="https://user-images.githubusercontent.com/104647293/226108518-8a8e9f36-fff5-405b-a06e-b957f6373c08.png" width="600px">
  <p> Também serão criados: </p>
  <p> - Um volume com o nome 'dbLama' para o banco de dados, volume esse que poderá ser excluído após o uso da aplicação com o comando 'docker volume rm            dbLama'; 
  </p>
- <p> Um netWork com o nome 'netLama', que também poderá estar sendo removido após o fim do uso dos containers com o comando 'docker network rm netLama'.  </p>
+ <p> - Um netWork com o nome 'netLama', que também poderá estar sendo removido após o fim do uso dos containers com o comando 'docker network rm netLama'.  </p>
  
 </details>
- <img src="https://user-images.githubusercontent.com/104647293/226108054-8fabc507-0b12-45de-8836-1a5489c39172.png" width="400px">
-
-
-## Como rodar o projeto
-
-Faça o clone do repositório, crie e preencha o .env com as seguintes variáveis de ambiente:
-
-- DB_HOST;
-- DB_USER;
-- DB_PASSWORD;
-- DB_DATABASE;
-- JWT_EXPIRES_IN;
-- JWT_KEY;
-- BCRYPT_SALT_ROUNDS.
-
-Você precisará de um banco mysql ou outro que seja suportado pelo Knex. Configure seu banco de acordo com as tabelas encontradas
-na pasta src/database.
 
 ##### Observações
 
-Esse projeto foi desenvolvido durante o curso da Labenu e está sendo migrado para este repositório. Logo a imagem docker estará disponível com docker-compose.yml e/ou um link para acesso da aplicação em deploy na AWS para facilitar seu uso.
+Logo mais será adicionado a documentação de rotas, por enquanto pode-se utilizar o arquivo ![request.rest](https://github.com/Programmer-Gabriel-Santos/Labenu-Music-Awards/blob/main/requests.rest) para requisições.
+O projeto continuará em desenvolvimento e será utilizado para fins de estudo/testes sobre claud / claud + Docker, Cors, Cache e configurações gerais de infraestrutura.
