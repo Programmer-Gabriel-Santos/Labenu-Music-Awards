@@ -68,5 +68,5 @@ a aplicação também gerencia os ingressos de cada show. O evento tem uma capac
 
 ##### Observações
 
-Logo mais será adicionado a documentação de rotas, por enquanto pode-se utilizar o arquivo [request.rest](https://github.com/Programmer-Gabriel-Santos/Labenu-Music-Awards/blob/main/requests.rest) para requisições.
+Logo mais será adicionado a documentação de rotas, por enquanto pode-se utilizar o arquivo ![request.rest](https://github.com/Programmer-Gabriel-Santos/Labenu-Music-Awards/blob/main/requests.rest) para requisições.
 O projeto continuará em desenvolvimento e será utilizado para fins de estudo/testes sobre claud / claud + Docker, Cors, Cache e configurações gerais de infraestrutura.
